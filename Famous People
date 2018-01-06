@@ -1,0 +1,58 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT INTO people (fullname, age) VALUES ("Hut Nop", "40");
+INSERT INTO people (fullname, age) VALUES ("Pizza Sauce", "25");
+INSERT INTO people (fullname, age) VALUES ("Tree Pine", "56");
+INSERT INTO people (fullname, age) VALUES ("Boo Ilop", "20");
+INSERT INTO people (fullname, age) VALUES ("Mitten Nip", "8");
+
+CREATE TABLE occupation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    job TEXT,
+    years INTEGER);
+    
+INSERT INTO occupation (person_id, job, years) VALUES (1, "Singer", 4);
+INSERT INTO occupation (person_id, job, years) VALUES (1, "Actor", 25);
+INSERT INTO occupation (person_id, job, years) VALUES (2, "Artist", 14);
+INSERT INTO occupation (person_id, job, years) VALUES (2, "Rapper", 2);
+INSERT INTO occupation (person_id, job, years) VALUES (3, "Model", 20);
+INSERT INTO occupation (person_id, job, years) VALUES (3, "Actress", 8);
+INSERT INTO occupation (person_id, job, years) VALUES (3, "Guitarist", 10);
+INSERT INTO occupation (person_id, job, years) VALUES (4, "Drummer", 28);
+INSERT INTO occupation (person_id, job, years) VALUES (4, "Dancer", 5);
+INSERT INTO occupation (person_id, job, years) VALUES (5, "Singer", 2);
+
+
+CREATE TABLE partner (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+    
+INSERT INTO partner (person1_id, person2_id) VALUES (1, 4);
+INSERT INTO partner (person1_id, person2_id) VALUES (2, 3);
+
+/*which jobs they have*/
+SELECT people.fullname, occupation.job 
+    FROM people
+    LEFT OUTER JOIN occupation
+    ON people.id = occupation.person_id;
+    
+/*age and how many years they've been doing the job*/
+SELECT people.fullname, people.age, occupation.job, occupation.years
+    FROM people
+    JOIN occupation
+    ON people.id = occupation.person_id;
+    
+/*marriage partners*/
+SELECT a.fullname, b.fullname
+    FROM partner
+    JOIN people a
+    ON partner.person1_id = a.id
+    JOIN people b
+    ON partner.person2_id = b.id
