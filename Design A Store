@@ -1,0 +1,24 @@
+//Clothing Shop
+
+CREATE TABLE clothing_shop (id INTEGER PRIMARY KEY, item TEXT, price REAL, rating INTEGER, size TEXT);
+INSERT INTO clothing_shop VALUES (1, "t-shirt", 9.99, 3, "small");
+INSERT INTO clothing_shop VALUES (2, "hat", 6.75, 4, "medium");
+INSERT INTO clothing_shop VALUES (3, "pants", 14.55, 2, "large");
+INSERT INTO clothing_shop VALUES (4, "sweater", 20.25, 5, "medium");
+INSERT INTO clothing_shop VALUES (5, "shoes", 18.99, 5, "large");
+INSERT INTO clothing_shop VALUES (6, "sunglasses", 21.99, 5, "extra large");
+INSERT INTO clothing_shop VALUES (7, "jeans", 14.99, 3, "small");
+INSERT INTO clothing_shop VALUES (8, "socks", 8.99, 4, "medium");
+INSERT INTO clothing_shop VALUES (9, "long sleeve", 16.99, 5, "small");
+INSERT INTO clothing_shop VALUES (10, "tank top", 9.54, 2, "extra small");
+INSERT INTO clothing_shop VALUES (11, "shoe laces", 3.02, 1, "medium");
+INSERT INTO clothing_shop VALUES (12, "watch", 94.35, 5, "medium");
+INSERT INTO clothing_shop VALUES (13, "tie", 24.64, 3, "small");
+INSERT INTO clothing_shop VALUES (14, "belt", 17.49, 4, "extra large");
+INSERT INTO clothing_shop VALUES (15, "flip flops", 6.80, 4, "large");
+
+//order list by price
+SELECT * FROM clothing_shop ORDER BY price;
+
+//show total sum of all merchandise
+SELECT SUM(price) FROM clothing_shop;
