@@ -1,0 +1,25 @@
+/* What does the app's SQL look like? */
+
+/*Pac-Man*/
+
+CREATE TABLE data (
+    id INTEGER PRIMARY KEY,
+    username TEXT,
+    lives INTEGER,
+    coins INTEGER
+    );
+
+INSERT INTO data (username, lives, coins) VALUES ("Winner101", 10, 0);
+INSERT INTO data (username, lives, coins) VALUES ("PacMan3", 6, 19);
+INSERT INTO data (username, lives, coins) VALUES ("PacManRox", 9, 15);
+INSERT INTO data (username, lives, coins) VALUES ("Gamr8", 2, 56);
+SELECT * FROM data;
+
+/*update lives of "Winner101"*/
+UPDATE data SET lives = 8 WHERE id = 1;
+SELECT * FROM data;
+
+/*delete "Gamr8"*/
+DELETE FROM data WHERE id = 4;
+SELECT * FROM data;
+
